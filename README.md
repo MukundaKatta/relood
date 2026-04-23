@@ -1,32 +1,41 @@
 # Relood
 
-> The resale app for kids stuff.
+Buy and sell outgrown kids clothes, toys, and gear. Local pickup. Fixed prices. No haggling, no scams.
 
-Buy and sell outgrown clothes, toys, and gear. Local pickup. Fixed prices. No haggling, no scams.
+**Status:** v0 skeleton — landing page + item-listing preview route. Full marketplace not yet wired.
 
-## What it does
+**Landing:** https://relood.vercel.app
 
-- **Bundle buys** — A whole season of clothes in one order. Less clicking, more wearing.
-- **Neighborhood-first** — Find stuff five streets over, not five time zones away.
-- **Good for the planet** — Rewear culture, less landfill. Your kids grow. Their clothes keep moving.
+---
 
-## Why
+## Stack
 
-Marketplace. Part of a 20-product exploration of high-demand consumer and SMB markets.
+| Layer | Choice |
+|---|---|
+| Framework | Next.js 15 (App Router) |
+| Language | TypeScript (strict) |
+| Styling | Tailwind v4 |
+| Fonts | Inter via `next/font/google` |
+| Hosting | Vercel (zero config) |
+| Waitlist | https://waitlist-api-sigma.vercel.app |
 
-## Status
+## Run locally
 
-Landing page live. Product in planning.
+```bash
+pnpm install
+pnpm dev
+```
 
-- **Live**: https://mukundakatta.github.io/relood/
+Open http://localhost:3000.
 
-## Stack (when built)
+## Deploy
 
-- Next.js 16 (App Router)
-- Supabase for auth + data
-- Stripe for payments
-- Deployed on Vercel
+Push to GitHub and import into Vercel. No environment variables required — everything is public and hardcoded.
 
-## Local preview
+## Routes
 
-Just open `index.html` in a browser — it is a static landing page with the Tailwind CDN.
+| Route | Description |
+|---|---|
+| `/` | Landing page — hero, demo grid, features, waitlist form |
+| `/try` | Mock listing form: upload photo, set size/price/condition, preview card in grid |
+| `/api/waitlist` | POST `{ email }` → forwards to waitlist-api-sigma with `product: "relood"` |
